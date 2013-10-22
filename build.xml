@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="azure.connector" default="build">
+	<property name="src" location="src/java" />
+    <property name="content" location="src/content" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="jarName" location="connector.jar" />
+
+	<target name="clean">
+		<delete failonerror="true" quiet="true" includeemptydirs="true">
+			<fileset dir="${dist}" />
+			<fileset dir="${build}" />
+		</delete>
+	</target> 
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${dist}" />
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${src}" destdir="${build}" source="1.5" target="1.5" debug="on" debuglevel="lines,vars,source">
+	     		<classpath>
+					<fileset dir="lib">
+                    	<include name="*.jar" />
+                	</fileset>
+            	</classpath>
+	    	</javac>
+		<jar destfile="build/connector.jar" basedir="build"/>
+	</target>
+
+	<target name="package" depends="build">
+		
+		<mkdir dir="${dist}/azure"/>
+		<copy todir="${dist}/azure">
+            		<fileset dir="${build}">
+                		<include name="connector.jar" />
+            		</fileset>
+		</copy>
+		<copy todir="${dist}/azure">
+            		<fileset dir="${content}">
+                		<include name="*.xml" />
+            		</fileset>
+		</copy>
+        	<zip destfile="${dist}/azure-connector.zip">
+                <zipfileset dir="${dist}/azure" filemode="755" prefix="azure/"/>
+        	</zip>
+        	<delete dir="${build}"/>
+        	<delete dir="${dist}/azure"/>
+	</target>
+	
+	<target name="build" depends="init, compile">
+	</target>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<image-types>
+	<image-type>
+		<name>Windows Azure Image</name>
+		<description>Windows Azure Image</description>
+		<property-definitions>
+			<property-definition>
+				<name>Hosted Service Name</name>
+				<description>Name of your deployed hosted service</description>
+				<required>true</required>
+				<type>STRING</type>
+				<default-string-value></default-string-value>
+				<string-max-length>80</string-max-length>
+				<allowed-string-values></allowed-string-values>
+				<default-file-value></default-file-value>
+			</property-definition>
+			<property-definition>
+				<name>Deployment Slot Type</name>
+				<description>Deployment Slot Type of the application</description>
+				<required>true</required>
+				<type>STRING</type>
+				<default-string-value>Staging</default-string-value>
+				<string-max-length>80</string-max-length>
+				<allowed-string-values>Production,Staging</allowed-string-values>
+				<default-file-value></default-file-value>
+			</property-definition>
+			<property-definition>
+				<name>Role Name</name>
+				<description>Name of the Role to be registered</description>
+				<required>true</required>
+				<type>STRING</type>
+				<default-string-value></default-string-value>
+				<string-max-length>80</string-max-length>
+				<allowed-string-values></allowed-string-values>
+				<default-file-value></default-file-value>
+			</property-definition>
+		</property-definitions>
+		<supported-compute-center-types>
+			<compute-center-type>Windows Azure</compute-center-type>
+		</supported-compute-center-types>
+	</image-type>
+</image-types>
