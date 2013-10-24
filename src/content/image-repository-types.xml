@@ -5,7 +5,7 @@
 		<name>Windows Azure</name>
 		<description>Windows Azure</description>
         <connector-impl-class-name>
-			com.singularity.ee.connectors.azure.paas.WindowsAzurePaaSConnector
+            com.appdynamics.connectors.WindowsAzurePaaSConnector
         </connector-impl-class-name>
     <property-definitions>
  				  <property-definition>

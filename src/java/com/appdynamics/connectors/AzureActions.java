@@ -1,4 +1,4 @@
-package com.singularity.ee.connectors.azure.paas;
+package com.appdynamics.connectors;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.singularity.ee.connectors.azure.paas;
+package com.appdynamics.connectors;
 
 import static com.singularity.ee.controller.KAppServerConstants.CONTROLLER_SERVICES_HOST_NAME_PROPERTY_KEY;
 import static com.singularity.ee.controller.KAppServerConstants.CONTROLLER_SERVICES_PORT_PROPERTY_KEY;
