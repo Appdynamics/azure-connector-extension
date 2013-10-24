@@ -1,4 +1,4 @@
-package com.appdynamics.connectors;
+package com.appdynamics.connectors.azure;
 
 import java.util.HashMap;
 import java.util.Map;

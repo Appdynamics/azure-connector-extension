@@ -1,4 +1,4 @@
-package com.appdynamics.connectors;
+package com.appdynamics.connectors.azure;
 
 import java.io.File;
 import java.io.FileInputStream;
