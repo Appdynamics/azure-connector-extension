@@ -1,4 +1,4 @@
-openstack-connector-extension
+azure-connector-extension
 ===========================
 
 ##Use Case
@@ -16,7 +16,7 @@ openstack-connector-extension
 </tr>
 <tr>
 <td class='confluenceTd'> src </td>
-<td class='confluenceTd'> Contains source code to the openstack connector extension </td>
+<td class='confluenceTd'> Contains source code to the azure connector extension </td>
 </tr>
 <tr>
 <td class='confluenceTd'> dist </td>
@@ -31,9 +31,9 @@ openstack-connector-extension
 
 ##Installation
 
-1. Clone the openstack-connector-extension from GitHub
-2. Run 'ant package' from the cloned openstack-connector-extension directory
-3. Download the file openstack-connector.zip located in the 'dist' directory into \<controller install dir\>/lib/connectors
+1. Clone the azure-connector-extension from GitHub
+2. Run 'ant package' from the cloned azure-connector-extension directory
+3. Download the file azure-connector.zip located in the 'dist' directory into \<controller install dir\>/lib/connectors
 4. Unzip the downloaded file
 5. Restart the Controller
 6. Go to the controller dashboard on the browser. Under Setup->My Preferences->Advanced Features enable "Show Cloud Auto-Scaling features" if it is not enabled. 
@@ -41,15 +41,15 @@ openstack-connector-extension
 
 Click Compute Cloud->Register Compute Cloud. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/openstack-connector-extension/master/OpenStack%20Compute%20Fields.png?login=rvasanda&token=7f509b16f54234b256e7a4b9a5fbaf6b)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure%20Compute%20Fields.png?login=rvasanda&token=7f509b16f54234b256e7a4b9a5fbaf6b)
 
 Click Image->Register Image. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/openstack-connector-extension/master/OpenStack%20Compute%20Image.png?login=rvasanda&token=115e990ccc6ba6ae95c294affc71fe51)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure%20Compute%20Image.png?login=rvasanda&token=115e990ccc6ba6ae95c294affc71fe51)
 
 ##Contributing
 
-Always feel free to fork and contribute any changes directly via [GitHub](https://github.com/Appdynamics/openstack-connector-extension).
+Always feel free to fork and contribute any changes directly via [GitHub](https://github.com/Appdynamics/azure-connector-extension).
 
 ##Community
 
