@@ -41,11 +41,11 @@ azure-connector-extension
 
 Click Compute Cloud->Register Compute Cloud. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure%20Compute%20Fields.png?login=rvasanda&token=7f509b16f54234b256e7a4b9a5fbaf6b)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Fields.png?login=rvasanda&token=707fad9bb659aec991c51a5bb6a73282)
 
 Click Image->Register Image. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure%20Compute%20Image.png?login=rvasanda&token=115e990ccc6ba6ae95c294affc71fe51)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Image.png?login=rvasanda&token=115a93ac360dddc0fadf2574acdb0cdd)
 
 ##Contributing
 
