@@ -3,6 +3,16 @@ azure-connector-extension
 
 ##Use Case
 
+Elastically grow/shrink instances into cloud/virtualized environments. There are four use cases for the connector. 
+
+First, if the Controller detects that the load on the machine instances hosting an application is too high, the azure-connector-extension may be used to automate creation of new virtual machines to host that application. The end goal is to reduce the load across the application by horizontally scaling up application machine instances.
+
+Second, if the Controller detects that the load on the machine instances hosting an application is below some minimum threshold, the azure-connector-extension may be used to terminate virtual machines running that application. The end goal is to save power/usage costs without sacrificing application performance by horizontally scaling down application machine instances.
+
+Third, if the Controller detects that a machine instance has terminated unexpectedly when the connector refreshes an application machine s`tate, the azure-connector-extension may be used to create a replacement virtual machine to replace the terminated application machine instance. This is known as our failover feature.
+
+Lastly, the azure-connector-extension may be used to stage migration of an application from a physical to virtual infrastructure. Or the azure-connector-extension may be used to add additional virtual capacity to an application to augment a preexisting physical infrastructure hosting the application.   
+
 ##Directory Structure
 
 <table><tbody>
