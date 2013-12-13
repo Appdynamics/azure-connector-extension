@@ -51,11 +51,11 @@ Lastly, the azure-connector-extension may be used to stage migration of an appli
 
 Click Compute Cloud->Register Compute Cloud. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Fields.png?login=rvasanda&token=707fad9bb659aec991c51a5bb6a73282)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Fields.png)
 
 Click Image->Register Image. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Image.png?login=rvasanda&token=115a93ac360dddc0fadf2574acdb0cdd)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Image.png)
 
 ##Contributing
 
