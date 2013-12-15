@@ -1,5 +1,5 @@
-Azure Connector Extension
-=========================
+Windows Azure Connector Extension
+=================================
 
 ##Use Case
 
