@@ -59,11 +59,11 @@ Click Image->Register Image. Refer to the image below
 
 ##Contributing
 
-Always feel free to fork and contribute any changes directly via [GitHub](https://github.com/Appdynamics/azure-connector-extension).
+Always feel free to fork and contribute any changes directly here on GitHub.
 
 ##Community
 
-Find out more in the [AppSphere] community.
+Find out more in the [AppSphere](http://appsphere.appdynamics.com/t5/eXchange/Windows-Azure-Cloud-Connector-Extension/idi-p/5493) community.
 
 ##Support
 
