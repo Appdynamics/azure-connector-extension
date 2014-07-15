@@ -42,6 +42,12 @@
                 		<include name="*.xml" />
             		</fileset>
 		</copy>
+		<mkdir dir="${dist}/azure/lib"/>
+		<copy todir="${dist}/azure/lib">
+			<fileset dir="lib">
+				<include name="org.soyatec.windows.azure.java_2.0.1.v20110606-0728.jar"/>
+            		</fileset>
+		</copy>
         	<zip destfile="${dist}/azure-connector.zip">
                 <zipfileset dir="${dist}/azure" filemode="755" prefix="azure/"/>
         	</zip>
