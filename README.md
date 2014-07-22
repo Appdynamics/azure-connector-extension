@@ -39,6 +39,18 @@ Lastly, the azure-connector-extension may be used to stage migration of an appli
 </tbody>
 </table>
 
+##Generating Required Keys
+
+1. Create a Java keystore file using <br>
+keytool -genkeypair -alias appdAlias -keyalg RSA -keystore KeyStore.jks -keysize 2048 -storepass "keypass"
+2. Create a Certificate file using keystore. We have to upload this certificate to Azure.<br>
+keytool -v -export -file AppDCert.cer -keystore KeyStore.jks -alias appdAlias
+3. Create a .p12 file<br>
+keytool -importkeystore -srckeystore KeyStore.jks -destkeystore AppdPrivate.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass keypass -deststorepass keypass -srcalias appdAlias -destalias appdAlias -srckeypass keypass -destkeypass keypass -noprompt
+4. In the create Compute Cloud section Provide .p12 file for "Personal Information Exchange Certificate" and .cer file for "Azure Certificate" and provide "Key Pass" and "Certificate Alias".
+5. In the Images section do not give spaces in the Name field and provide valid "Hosted Service Name" and "Role Name".
+You can get the "Hosted Service Name" from "Cloud Services" section of Windows Azure (https://manage.windowsazure.com).
+
 ##Installation
 
 1. Clone the azure-connector-extension from GitHub
