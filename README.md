@@ -57,13 +57,15 @@ Click Compute Cloud->Register Compute Cloud. Refer to the image below
 
 ![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure_compute_cloud.png)
 
+Upload .jks file as 'Key Store'
+
 Click Image->Register Image. Refer to the image below
 
 ![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure_image.png)
 
 To launch an instance click the image created in the above step and click on Launch Instance. Refer to the image below
 
-![alt tag](https://github.com/Appdynamics/gce-connector-extension/raw/master/azure_launch_instance.png)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure_launch_instance.png)
 
 ##Contributing
 
