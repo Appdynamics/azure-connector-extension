@@ -42,6 +42,7 @@ keytool -genkeypair -alias appdAlias -keyalg RSA -keystore KeyStore.jks -keysize
 2. Create a Certificate file using keystore. We have to upload this certificate to Azure.<br>
 keytool -v -export -file AppDCert.cer -keystore KeyStore.jks -alias appdAlias
 
+<b>Note:</b> This version of the connector is not compatible with the prvious version. If you already have a azure connector in \<controller install dir\>/lib/connectors, dont replace the jars. Keep both the folders or remove the old azure folder.
 
 ##Installation
 
