@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <image-types>
 	<image-type>
-		<name>Windows Azure Image</name>
-		<description>Windows Azure Image</description>
+		<name>Windows Azure v1 Image</name>
+		<description>Windows Azure v1 Image</description>
 		<property-definitions>
 			<property-definition>
 				<name>Hosted Service Name</name>
@@ -24,19 +24,19 @@
 				<allowed-string-values>Production,Staging</allowed-string-values>
 				<default-file-value></default-file-value>
 			</property-definition>
-			<property-definition>
-				<name>Role Name</name>
-				<description>Name of the Role to be registered</description>
-				<required>true</required>
-				<type>STRING</type>
-				<default-string-value></default-string-value>
-				<string-max-length>80</string-max-length>
-				<allowed-string-values></allowed-string-values>
-				<default-file-value></default-file-value>
-			</property-definition>
+            <property-definition>
+                <name>Location</name>
+                <description>Location</description>
+                <required>true</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values>South Central US,Central US,East US 2,East US,West US,North Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan West,Japan East,Brazil South</allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
 		</property-definitions>
 		<supported-compute-center-types>
-			<compute-center-type>Windows Azure</compute-center-type>
+			<compute-center-type>Windows Azure v1</compute-center-type>
 		</supported-compute-center-types>
 	</image-type>
 </image-types>

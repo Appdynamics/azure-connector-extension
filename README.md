@@ -3,9 +3,6 @@ Windows Azure Connector Extension
 
 ##Use Case
 
-
-
-
 Elastically grow/shrink instances into cloud/virtualized environments. There are four use cases for the connector. 
 
 First, if the Controller detects that the load on the machine instances hosting an application is too high, the azure-connector-extension may be used to automate creation of new virtual machines to host that application. The end goal is to reduce the load across the application by horizontally scaling up application machine instances.

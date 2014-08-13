@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compute-center-types>
+    <compute-center-type>
+        <name>Windows Azure v1</name>
+        <description>Windows Azure v1</description>
+        <connector-impl-class-name>
+            com.appdynamics.connectors.azure.WindowsAzurePaaSConnector
+        </connector-impl-class-name>
+        <property-definitions>
+            <property-definition>
+                <name>Subscription Id</name>
+                <description>Subscription Id</description>
+                <required>true</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>Key Store</name>
+                <description>Java Key Store(jks)</description>
+                <required>true</required>
+                <type>FILE</type>
+                <default-string-value></default-string-value>
+                <string-max-length></string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>Key Store Password</name>
+                <description>Java Key Store(jks) Passwprd</description>
+                <required>true</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+        </property-definitions>
+        <machine-descriptor-definitions>
+            <property-definition>
+                <name>Role Instance Name</name>
+                <description>Azure Role Instance Name</description>
+                <required>required</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>OS Image</name>
+                <description>OS Image</description>
+                <required>required</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values>Windows Server 2012 R2 Datacenter,Windows Server 2012 Datacenter,Windows Server 2008 R2 SP1,SUSE Linux Enterprise Server 11 SP,SUSE Linux Enterprise Server 11 SP3 (Premium Image),SUSE Linux Enterprise Server 11 SP3 for SAP Cloud Appliance Library,Ubuntu Server 12.04 LTS,Ubuntu Server 14.04 LTS,OpenLogic,Oracle Linux 6.4.0.0.0,DreamFactory 1.6,eXo Platform Express 4</allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>Size</name>
+                <description>Size</description>
+                <required>required</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values>Small,ExtraSmall,Large,Medium,ExtraLarge,A5,A6,A7,A8,A9</allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>Admin User Name</name>
+                <description>Admin User name</description>
+                <required>required</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+            <property-definition>
+                <name>Admin User Password</name>
+                <description>Admin User Password</description>
+                <required>required</required>
+                <type>STRING</type>
+                <default-string-value></default-string-value>
+                <string-max-length>80</string-max-length>
+                <allowed-string-values></allowed-string-values>
+                <default-file-value></default-file-value>
+            </property-definition>
+        </machine-descriptor-definitions>
+    </compute-center-type>
+</compute-center-types>
