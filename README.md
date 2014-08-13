@@ -21,20 +21,16 @@ Lastly, the azure-connector-extension may be used to stage migration of an appli
 <th align="left"> Description </th>
 </tr>
 <tr>
-<td class='confluenceTd'> lib </td>
-<td class='confluenceTd'> Contains third-party project references </td>
-</tr>
-<tr>
 <td class='confluenceTd'> src </td>
 <td class='confluenceTd'> Contains source code to the azure connector extension </td>
 </tr>
 <tr>
-<td class='confluenceTd'> dist </td>
-<td class='confluenceTd'> Only obtained when using ant. Run 'ant build' to get binaries. Run 'ant package' to get the distributable .zip file </td>
+<td class='confluenceTd'> target </td>
+<td class='confluenceTd'> Only obtained when using maven. Run 'maven clean install' to get distributable .zip file </td>
 </tr>
 <tr>
-<td class='confluenceTd'> build.xml </td>
-<td class='confluenceTd'> Ant build script to package the project (required only if changing Java code) </td>
+<td class='confluenceTd'> pom.xml </td>
+<td class='confluenceTd'> maven script file (required only if changing Java code) </td>
 </tr>
 </tbody>
 </table>
@@ -45,17 +41,13 @@ Lastly, the azure-connector-extension may be used to stage migration of an appli
 keytool -genkeypair -alias appdAlias -keyalg RSA -keystore KeyStore.jks -keysize 2048 -storepass "keypass"
 2. Create a Certificate file using keystore. We have to upload this certificate to Azure.<br>
 keytool -v -export -file AppDCert.cer -keystore KeyStore.jks -alias appdAlias
-3. Create a .p12 file<br>
-keytool -importkeystore -srckeystore KeyStore.jks -destkeystore AppdPrivate.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass keypass -deststorepass keypass -srcalias appdAlias -destalias appdAlias -srckeypass keypass -destkeypass keypass -noprompt
-4. In the create Compute Cloud section Provide .p12 file for "Personal Information Exchange Certificate" and .cer file for "Azure Certificate" and provide "Key Pass" and "Certificate Alias".
-5. In the Images section do not give spaces in the Name field and provide valid "Hosted Service Name" and "Role Name".
-You can get the "Hosted Service Name" from "Cloud Services" section of Windows Azure (https://manage.windowsazure.com).
+
 
 ##Installation
 
 1. Clone the azure-connector-extension from GitHub
-2. Run 'ant package' from the cloned azure-connector-extension directory
-3. Download the file azure-connector.zip located in the 'dist' directory into \<controller install dir\>/lib/connectors
+2. Run 'maven clean install' from the cloned azure-connector-extension directory
+3. Download the file azure-connector_v1.zip located in the 'dist' directory into \<controller install dir\>/lib/connectors
 4. Unzip the downloaded file
 5. Restart the Controller
 6. Go to the controller dashboard on the browser. Under Setup->My Preferences->Advanced Features enable "Show Cloud Auto-Scaling features" if it is not enabled. 
@@ -63,11 +55,15 @@ You can get the "Hosted Service Name" from "Cloud Services" section of Windows A
 
 Click Compute Cloud->Register Compute Cloud. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Fields.png)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure_compute_cloud.png)
 
 Click Image->Register Image. Refer to the image below
 
-![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/Windows%20Azure%20Image.png)
+![alt tag](https://raw.github.com/Appdynamics/azure-connector-extension/master/azure_image.png)
+
+To launch an instance click the image created in the above step and click on Launch Instance. Refer to the image below
+
+![alt tag](https://github.com/Appdynamics/gce-connector-extension/raw/master/azure_launch_instance.png)
 
 ##Contributing
 
