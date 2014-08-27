@@ -177,12 +177,12 @@ public class AzureActions {
         String adminUserPassword = Utils.getAdminUserPassword(machineDescriptor.getProperties(), controllerServices);
 
         String hostedServiceName = Utils.getHostedServiceName(image.getProperties(), controllerServices);
-        
+
         createHostedService(computeClient, image, controllerServices);
-        
+
         DeploymentSlot deploymentSlot = Utils.getDeploymentSlot(image.getProperties(), controllerServices);
 
-        String deploymentName = hostedServiceName+"-"+deploymentSlot.name();
+        String deploymentName = hostedServiceName + "-" + deploymentSlot.name();
         if (!isDeploymentPresent(computeClient, hostedServiceName, deploymentName)) {
             ArrayList<Role> roleList = createRoleList(hostedServiceName, roleInstanceName, azureOsImage, size, adminUserName, adminUserPassword);
             createVMDeployment(computeClient, roleList, deploymentSlot, hostedServiceName);
@@ -190,7 +190,7 @@ public class AzureActions {
             createVirtualMachines(computeClient, hostedServiceName, deploymentName, roleInstanceName, azureOsImage, size, adminUserName, adminUserPassword);
         }
 
-        
+
     }
 
     private static boolean isDeploymentPresent(ComputeManagementClient computeClient, String hostedServiceName, String deploymentName) throws ConnectorException {
@@ -317,7 +317,7 @@ public class AzureActions {
                 logger.log(Level.FINER, "Deployment not found, creating deployment");
                 VirtualMachineCreateDeploymentParameters deploymentParameters = new VirtualMachineCreateDeploymentParameters();
                 deploymentParameters.setDeploymentSlot(deploymentSlot);
-                String deploymentName = hostedServiceName+"-"+deploymentSlot.name();
+                String deploymentName = hostedServiceName + "-" + deploymentSlot.name();
                 deploymentParameters.setName(deploymentName);
                 deploymentParameters.setLabel(deploymentName);
                 deploymentParameters.setRoles(roleList);
@@ -350,8 +350,19 @@ public class AzureActions {
     }
 
     public static void deleteInstance(ComputeManagementClient connector, String hostedServiceName, String deploymentName, String instanceName) throws ConnectorException {
+        DeploymentGetResponse deployment = null;
         try {
-            connector.getVirtualMachinesOperations().delete(hostedServiceName, deploymentName, instanceName, true);
+            deployment = connector.getDeploymentsOperations().getByName(hostedServiceName, deploymentName);
+            ArrayList<RoleInstance> roleInstances = deployment.getRoleInstances();
+            if (roleInstances != null && roleInstances.size() > 1) {
+                logger.log(Level.FINER, "Deleting the machine " + instanceName);
+                connector.getVirtualMachinesOperations().delete(hostedServiceName, deploymentName, instanceName, true);
+            } else if (roleInstances != null && roleInstances.size() == 1 && roleInstances.get(0).getInstanceName().equals(instanceName)) {
+                logger.log(Level.FINER, "Only one instance found on the deployment. Deleting the deployment.");
+                connector.getDeploymentsOperations().deleteByName(hostedServiceName, deploymentName, true);
+            } else {
+                logger.log(Level.FINER, "Instance [" + instanceName + "] not found. Removing it from the controller.");
+            }
         } catch (IOException e) {
             logger.log(Level.WARNING, "Unable to delete VM instance", e);
             throw new ConnectorException("Unable to delete VM instance", e);
@@ -362,6 +373,15 @@ public class AzureActions {
             logger.log(Level.WARNING, "Unable to delete VM instance", e);
             throw new ConnectorException("Unable to delete VM instance", e);
         } catch (ExecutionException e) {
+            logger.log(Level.WARNING, "Unable to delete VM instance", e);
+            throw new ConnectorException("Unable to delete VM instance", e);
+        } catch (ParserConfigurationException e) {
+            logger.log(Level.WARNING, "Unable to delete VM instance", e);
+            throw new ConnectorException("Unable to delete VM instance", e);
+        } catch (SAXException e) {
+            logger.log(Level.WARNING, "Unable to delete VM instance", e);
+            throw new ConnectorException("Unable to delete VM instance", e);
+        } catch (URISyntaxException e) {
             logger.log(Level.WARNING, "Unable to delete VM instance", e);
             throw new ConnectorException("Unable to delete VM instance", e);
         }
@@ -422,8 +442,13 @@ public class AzureActions {
             logger.log(Level.WARNING, "Update VM state failed", e);
             throw new ConnectorException("Update VM state failed", e);
         } catch (ServiceException e) {
-            logger.log(Level.WARNING, "Update VM state failed", e);
-            throw new ConnectorException("Update VM state failed", e);
+            if (e.getMessage().contains("ResourceNotFound")) {
+                machine.setState(MachineState.STOPPED);
+            } else {
+                logger.log(Level.WARNING, "Update VM state failed", e);
+                throw new ConnectorException("Update VM state failed", e);
+            }
+
         } catch (ParserConfigurationException e) {
             logger.log(Level.WARNING, "Update VM state failed", e);
             throw new ConnectorException("Update VM state failed", e);
