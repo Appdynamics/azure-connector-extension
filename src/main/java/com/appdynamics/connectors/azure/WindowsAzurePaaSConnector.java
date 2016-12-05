@@ -62,7 +62,7 @@ public class WindowsAzurePaaSConnector implements IConnector {
             AzureActions.createInstance(connector, computeCenter, image, machineDescriptor, controllerServices);
 
             String roleInstanceName = Utils.getRoleInstanceName(machineDescriptor.getProperties(), controllerServices);
-            
+
             AgentResolutionEncoder agentResolutionEncoder = getAgentResolutionEncoder(computeCenter);
             IMachine machine = controllerServices.createMachineInstance(roleInstanceName,
                     agentResolutionEncoder.getUniqueHostIdentifier(), computeCenter, machineDescriptor, image,
@@ -90,7 +90,7 @@ public class WindowsAzurePaaSConnector implements IConnector {
 
         int controllerPort = Integer.getInteger(CONTROLLER_SERVICES_PORT_PROPERTY_KEY, DEFAULT_CONTROLLER_PORT_VALUE);
         return new AgentResolutionEncoder(controllerHost, controllerPort,
-                account.getName(), account.getAccessKey());
+                account.getName(), "");
     }
 
     @Override
@@ -115,7 +115,7 @@ public class WindowsAzurePaaSConnector implements IConnector {
         }
 
         DeploymentSlot deploymentSlot = Utils.getDeploymentSlot(image.getProperties(), controllerServices);
-        String deploymentName = hostedServiceName+"-"+deploymentSlot.name();
+        String deploymentName = hostedServiceName + "-" + deploymentSlot.name();
         AzureActions.deleteInstance(connector, hostedServiceName, deploymentName, roleInstanceName);
     }
 
@@ -154,7 +154,7 @@ public class WindowsAzurePaaSConnector implements IConnector {
         }
 
         DeploymentSlot deploymentSlot = Utils.getDeploymentSlot(image.getProperties(), controllerServices);
-        String deploymentName = hostedServiceName+"-"+deploymentSlot.name();
+        String deploymentName = hostedServiceName + "-" + deploymentSlot.name();
         AzureActions.updateMachineState(machine, connector, hostedServiceName, deploymentName, roleInstanceName);
     }
 
@@ -175,7 +175,7 @@ public class WindowsAzurePaaSConnector implements IConnector {
         }
 
         DeploymentSlot deploymentSlot = Utils.getDeploymentSlot(image.getProperties(), controllerServices);
-        String deploymentName = hostedServiceName+"-"+deploymentSlot.name();
+        String deploymentName = hostedServiceName + "-" + deploymentSlot.name();
 
         AzureActions.restartInstance(connector, hostedServiceName, deploymentName, roleInstanceName);
     }
