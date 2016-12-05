@@ -20,7 +20,7 @@
 
     <groupId>com.appdynamics.cloud.connectors</groupId>
     <artifactId>azure-connector-extension</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
     <name>azure-connector-extension</name>
     <url>http://maven.apache.org</url>
