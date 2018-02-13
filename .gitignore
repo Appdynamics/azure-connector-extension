@@ -1,6 +1,13 @@
 *.class
 *.iml
-*.war
-
+.classpath
+.project
 .idea
 dist
+target
+
+# Package Files #
+*.war
+*.ear
+/bin
+
